@@ -46,7 +46,12 @@ export default function Navbar(props: NavbarProps) {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 px-6 py-4 sm:py-6 sm:px-14 md:px-20">
+    <header className={classNames(
+      "sticky top-0 z-50 px-6 py-1 sm:py-6 sm:px-14 md:px-20 transition-all duration-300",
+      isScrolled 
+        ? "bg-background/80 backdrop-blur-lg shadow-lg border-b border-zinc-200/50 dark:border-accent/20" 
+        : "bg-transparent"
+    )}>
       <div className="mx-auto flex items-center justify-between lg:max-w-7xl">
         <Link
           href="/"
@@ -54,8 +59,8 @@ export default function Navbar(props: NavbarProps) {
           aria-label="Return to home page"
         >
           <div className="relative h-36 w-36 sm:h-40 sm:w-40">
-            <Image
-              src="/favicon.png"
+            <Image 
+              src="/favicon.png" 
               alt={siteMetadata.siteName}
               fill
               className="object-contain"
@@ -63,16 +68,7 @@ export default function Navbar(props: NavbarProps) {
             />
           </div>
         </Link>
-
-        <div
-          className={classNames(
-            "flex items-center gap-4 transition-all duration-300",
-            isScrolled
-              ? "px-3 py-2 rounded-full bg-background/80 backdrop-blur-lg shadow-lg border border-zinc-200/40 dark:border-accent/20"
-              : ""
-          )}
-        >
-          <nav className="hidden items-center gap-2 rounded-full px-2 py-2 md:flex">
+        <nav className="hidden items-center gap-2 rounded-full px-2 py-2 shadow-md ring-1 ring-zinc-200 backdrop-blur-md dark:ring-accent/50 md:flex">
           <ul className="flex gap-2 text-sm font-medium">
             {props.routes.map((_link, index) => {
               return (
@@ -115,8 +111,7 @@ export default function Navbar(props: NavbarProps) {
         <AnimatePresence>
           <MenuLogo open={isModalOpen} toggle={toggleModal} />
         </AnimatePresence>
-        </div>
-        </div>
+      </div>
 
       <MobileMenu
         routes={props.routes}
