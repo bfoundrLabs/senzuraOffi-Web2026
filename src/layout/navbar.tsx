@@ -48,9 +48,7 @@ export default function Navbar(props: NavbarProps) {
   return (
     <header className={classNames(
       "sticky top-0 z-50 px-6 py-1 sm:py-6 sm:px-14 md:px-20 transition-all duration-300",
-      isScrolled 
-        ? "bg-background/80 backdrop-blur-lg shadow-lg border-b border-zinc-200/50 dark:border-accent/20" 
-        : "bg-transparent"
+       isScrolled ? "bg-transparent backdrop-blur-lg shadow-lg" : "bg-transparent"
     )}>
       <div className="mx-auto flex items-center justify-between lg:max-w-7xl">
         <Link
