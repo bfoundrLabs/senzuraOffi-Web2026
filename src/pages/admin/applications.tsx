@@ -10,6 +10,7 @@ interface Application {
   phone: string;
   coverLetter: string;
   resumeUrl: string;
+  resumeFileName?: string;
   createdAt: string;
 }
 
@@ -164,7 +165,7 @@ export default function AdminApplications() {
                         </a>
                         <a
                           href={selected.resumeUrl}
-                          download
+                          download={selected.resumeFileName || "resume.pdf"}
                           className="inline-flex items-center gap-1.5 rounded-lg bg-[#2E86A7] px-3 py-2 text-sm font-medium text-white transition-colors hover:bg-[#2E86A7]/90"
                         >
                           Download

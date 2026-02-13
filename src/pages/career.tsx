@@ -35,6 +35,7 @@ export default function Career() {
   const [cvFile, setCvFile] = useState<File | null>(null);
   const [cvUploading, setCvUploading] = useState(false);
   const [cvUrl, setCvUrl] = useState("");
+  const [cvFileName, setCvFileName] = useState("");
   const cvFileRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -76,6 +77,15 @@ export default function Career() {
           const uploadData = await uploadRes.json();
           resumeUrl = uploadData.url;
           setCvUrl(uploadData.url);
+          const original =
+            uploadData.originalFilename || uploadData.original_filename || "";
+          const format = uploadData.format || "";
+          const filename = original
+            ? format
+              ? `${original}.${format}`
+              : original
+            : cvFile.name;
+          setCvFileName(filename);
         } else {
           const err = await uploadRes
             .json()
@@ -96,6 +106,7 @@ export default function Career() {
           careerTitle: applyingTo.title,
           ...applyForm,
           resumeUrl,
+          resumeFileName: cvFileName || undefined,
         }),
       });
 
@@ -104,6 +115,7 @@ export default function Career() {
         setApplyForm({ name: "", email: "", phone: "", coverLetter: "" });
         setCvFile(null);
         setCvUrl("");
+        setCvFileName("");
         setApplyError("");
       } else {
         const err = await res
@@ -179,7 +191,7 @@ export default function Career() {
                   to reach out and share your profile.
                 </p>
                 <a
-                  href={`mailto:${siteMetadata.email}?subject=General%20Inquiry`}
+                  href={`mailto:careers@senzura.tech?subject=Career%20Inquiry`}
                   className="mt-6 inline-block rounded-lg bg-accent px-8 py-3 font-semibold text-accent-foreground transition-all duration-200 hover:bg-accent/90"
                 >
                   Get in Touch
@@ -274,7 +286,7 @@ export default function Career() {
               reach out and share your profile.
             </p>
             <a
-              href={`mailto:${siteMetadata.email}?subject=General%20Inquiry`}
+              href={`mailto:careers@senzura.tech?subject=Career%20Inquiry`}
               className="mt-6 inline-block rounded-lg bg-accent px-8 py-3 font-semibold text-accent-foreground transition-all duration-200 hover:bg-accent/90"
             >
               Get in Touch

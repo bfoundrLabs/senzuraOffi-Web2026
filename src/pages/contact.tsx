@@ -325,17 +325,20 @@ export default function Contact() {
                       </p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-3">
+                  <div className="mb-6 flex items-center gap-3">
                     <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-[#2E86A7] to-[#1F5F75]">
                       <PhoneIcon className="h-5 w-5 text-white" />
                     </div>
                     <div>
                       <h3 className="text-sm font-semibold text-foreground">
-                        Working Hours
+                        Call Us
                       </h3>
-                      <p className="text-sm text-muted-foreground">
-                        Mon – Fri, 9 AM – 6 PM IST
-                      </p>
+                      <a
+                        href="tel:+94704551111"
+                        className="text-sm text-accent hover:underline"
+                      >
+                        +94 70 455 1111
+                      </a>
                     </div>
                   </div>
                 </div>

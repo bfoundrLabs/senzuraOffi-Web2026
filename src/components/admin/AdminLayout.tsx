@@ -7,6 +7,7 @@ import {
   MailIcon,
   BriefcaseIcon,
   UsersIcon,
+  Users2Icon,
   LogOutIcon,
   MenuIcon,
   XIcon,
@@ -25,6 +26,7 @@ const NAV_ITEMS = [
   { label: "Contacts", href: "/admin/contacts", icon: MailIcon },
   { label: "Careers", href: "/admin/careers", icon: BriefcaseIcon },
   { label: "Applications", href: "/admin/applications", icon: UsersIcon },
+  { label: "Team", href: "/admin/team", icon: Users2Icon },
 ];
 
 export default function AdminLayout({ children, title }: AdminLayoutProps) {

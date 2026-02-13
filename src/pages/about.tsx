@@ -1,5 +1,7 @@
+import { useEffect, useState } from "react";
 import { NextSeo } from "next-seo";
 import { AnimatePresence } from "framer-motion";
+import { LinkedinIcon } from "lucide-react";
 
 import FadeUp from "@/animation/fade-up";
 import Link from "next/link";
@@ -14,6 +16,14 @@ import {
   TelescopeIcon,
 } from "@/components/icons";
 import { siteMetadata } from "@/data/siteMetaData.mjs";
+
+interface TeamMember {
+  _id: string;
+  name: string;
+  role: string;
+  image: string;
+  linkedinUrl: string;
+}
 
 const CORE_VALUES = [
   {
@@ -54,49 +64,20 @@ const CORE_VALUES = [
   },
 ];
 
-const TEAM_MEMBERS = [
-  {
-    role: "Founder & Lead Engineer",
-    focus: "Architecture, Strategy & Full-Stack Engineering",
-    description:
-      "Drives the technical vision and ensures every system we build meets our high security and performance standards.",
-  },
-  {
-    role: "Full Stack Developer",
-    focus: "Next.js, Node.js, MongoDB & APIs",
-    description:
-      "Builds end-to-end features, from database schemas to pixel-perfect frontends, with production-ready code.",
-  },
-  {
-    role: "UI/UX Engineer",
-    focus: "Design Systems, Figma & Frontend",
-    description:
-      "Crafts intuitive, accessible interfaces and translates complex workflows into elegant user experiences.",
-  },
-  {
-    role: "Cloud Architect",
-    focus: "AWS, Docker, Kubernetes & CI/CD",
-    description:
-      "Designs cloud infrastructure, manages deployments, and ensures 99.9% uptime with automated scaling.",
-  },
-];
-
-const TECH_STACK = [
-  {
-    category: "Frontend",
-    tools: "Next.js, React, TypeScript, Tailwind CSS, Framer Motion",
-  },
-  { category: "Backend", tools: "Node.js, Express, GraphQL, REST APIs" },
-  { category: "Mobile", tools: "Flutter, React Native" },
-  { category: "Database", tools: "MongoDB, PostgreSQL, Redis, Prisma" },
-  {
-    category: "Cloud & DevOps",
-    tools: "AWS, GCP, Docker, Kubernetes, GitHub Actions",
-  },
-  { category: "Tools", tools: "Git, Figma, Postman, VS Code, Vercel" },
-];
-
 export default function About() {
+  const [teamMembers, setTeamMembers] = useState<TeamMember[]>([]);
+  const [teamLoading, setTeamLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("/api/team")
+      .then((r) => r.json())
+      .then((data) => {
+        setTeamMembers(Array.isArray(data) ? data : []);
+        setTeamLoading(false);
+      })
+      .catch(() => setTeamLoading(false));
+  }, []);
+
   return (
     <>
       <NextSeo
@@ -280,54 +261,64 @@ export default function About() {
             A lean, focused team of engineers building world-class software.
           </p>
         </FadeUp>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {TEAM_MEMBERS.map((member, index) => (
-            <FadeUp key={index} duration={0.6} delay={0.1 * (index + 1)}>
-              <div className="group rounded-xl border border-[#6C7A89]/20 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#2E86A7]/40 hover:shadow-lg dark:border-[#6C7A89]/10 dark:bg-zinc-800">
-                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-[#2E86A7] to-[#1F5F75] text-2xl font-bold text-white">
-                  {member.role.charAt(0)}
-                </div>
-                <h3 className="mb-1 text-lg font-bold text-foreground">
-                  {member.role}
-                </h3>
-                <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-accent">
-                  {member.focus}
-                </p>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400">
-                  {member.description}
-                </p>
-              </div>
-            </FadeUp>
-          ))}
-        </div>
-      </section>
 
-      {/* Tech Stack */}
-      <section className="bg-zinc-50 px-6 py-20 dark:bg-zinc-900/50 sm:px-14 md:px-20">
-        <div className="mx-auto max-w-7xl">
-          <FadeUp duration={0.6}>
-            <h2 className="mb-12 text-3xl font-bold text-foreground md:text-4xl">
-              Our{" "}
-              <span className="bg-gradient-to-r from-[#2E86A7] to-[#1F5F75] bg-clip-text text-transparent">
-                Tech Stack
-              </span>
-            </h2>
+        {teamLoading ? (
+          <div className="flex h-40 items-center justify-center">
+            <div className="h-8 w-8 animate-spin rounded-full border-4 border-accent border-t-transparent" />
+          </div>
+        ) : teamMembers.length === 0 ? (
+          <FadeUp duration={0.6} delay={0.2}>
+            <div className="mx-auto max-w-md rounded-2xl border border-[#2E86A7]/20 bg-gradient-to-br from-[#2E86A7]/5 to-transparent p-12 text-center">
+              <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-[#2E86A7]/20 to-[#1F5F75]/10">
+                <span className="text-3xl">👀</span>
+              </div>
+              <h3 className="mb-2 text-xl font-bold text-foreground">
+                Revealing Soon
+              </h3>
+              <p className="text-sm text-zinc-500 dark:text-zinc-400">
+                Our talented team is working behind the scenes. Stay tuned —
+                faces and profiles are coming soon!
+              </p>
+            </div>
           </FadeUp>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {TECH_STACK.map((stack, index) => (
-              <FadeUp key={index} duration={0.6} delay={0.08 * (index + 1)}>
-                <div className="rounded-xl border border-[#6C7A89]/20 bg-white p-6 transition-all duration-300 hover:border-[#2E86A7]/30 dark:border-[#6C7A89]/10 dark:bg-zinc-800">
-                  <h3 className="mb-2 text-sm font-semibold uppercase tracking-wider text-accent">
-                    {stack.category}
+        ) : (
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {teamMembers.map((member, index) => (
+              <FadeUp key={member._id} duration={0.6} delay={0.1 * (index + 1)}>
+                <div className="group rounded-xl border border-[#6C7A89]/20 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#2E86A7]/40 hover:shadow-lg dark:border-[#6C7A89]/10 dark:bg-zinc-800">
+                  {member.image ? (
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="mb-4 h-20 w-20 rounded-full object-cover ring-2 ring-[#2E86A7]/20"
+                    />
+                  ) : (
+                    <div className="mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-[#2E86A7] to-[#1F5F75] text-2xl font-bold text-white">
+                      {member.name.charAt(0).toUpperCase()}
+                    </div>
+                  )}
+                  <h3 className="mb-1 text-lg font-bold text-foreground">
+                    {member.name}
                   </h3>
-                  <p className="text-base text-zinc-700 dark:text-zinc-300">
-                    {stack.tools}
+                  <p className="mb-3 text-sm font-semibold text-accent">
+                    {member.role}
                   </p>
+                  {member.linkedinUrl && (
+                    <a
+                      href={member.linkedinUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-sm text-zinc-500 transition-colors hover:text-[#0077B5]"
+                    >
+                      <LinkedinIcon size={14} />
+                      LinkedIn
+                    </a>
+                  )}
                 </div>
               </FadeUp>
             ))}
           </div>
-        </div>
+        )}
       </section>
 
       {/* CTA */}

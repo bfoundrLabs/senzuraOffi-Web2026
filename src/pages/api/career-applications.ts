@@ -9,8 +9,15 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === "POST") {
     // Public: anyone can apply
     try {
-      const { careerTitle, name, email, phone, coverLetter, resumeUrl } =
-        req.body;
+      const {
+        careerTitle,
+        name,
+        email,
+        phone,
+        coverLetter,
+        resumeUrl,
+        resumeFileName,
+      } = req.body;
 
       if (!careerTitle || !name || !email) {
         return res
@@ -25,6 +32,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
         phone: phone || "",
         coverLetter: coverLetter || "",
         resumeUrl: resumeUrl || "",
+        resumeFileName: resumeFileName || "",
       });
 
       return res

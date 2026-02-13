@@ -32,9 +32,7 @@ export default function ContactButton() {
 
   return (
     <>
-      {isBtnVisible && !isOpenModal && (
-        <FloatingMailButton openModal={setIsOpenModal} />
-      )}
+      {isBtnVisible && !isOpenModal && <FloatingMailButton />}
 
       <button
         ref={refSendBtn}

@@ -8,6 +8,7 @@ export interface ICareerApplication {
   phone: string;
   coverLetter: string;
   resumeUrl: string;
+  resumeFileName?: string;
   createdAt: Date;
 }
 
@@ -18,6 +19,7 @@ const CareerApplicationSchema = new mongoose.Schema({
   phone: { type: String, default: "" },
   coverLetter: { type: String, default: "" },
   resumeUrl: { type: String, default: "" },
+  resumeFileName: { type: String, default: "" },
   createdAt: { type: Date, default: Date.now },
 });
 

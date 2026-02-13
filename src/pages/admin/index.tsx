@@ -73,7 +73,7 @@ export default function AdminLogin() {
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="admin@senzura.com"
+                  placeholder="example@domain.com"
                   required
                   className="w-full rounded-lg border border-zinc-300 bg-white px-4 py-2.5 text-sm text-zinc-900 outline-none transition-colors focus:border-[#2E86A7] focus:ring-2 focus:ring-[#2E86A7]/20 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white"
                 />
