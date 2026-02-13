@@ -12,6 +12,8 @@
 /.next/
 /out/
 
+seeduser.js
+
 # production
 /build
 
@@ -39,3 +41,10 @@ next-env.d.ts
 
 public/sitemap.xml
 public/robots.txt
+
+node_modules/
+dist/
+
+.env.local
+
+.env

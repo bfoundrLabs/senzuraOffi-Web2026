@@ -15,18 +15,18 @@ export default function Home() {
   return (
     <>
       <NextSeo
-        title="Senzura CodeLabs — Professional Software Development & Digital Solutions"
-        description="Senzura CodeLabs delivers innovative web development, mobile applications, custom software, AI solutions, and digital transformation services. Empowering businesses worldwide with cutting-edge technology."
+        title="Senzura Codelabs — Engineering Secure Digital Futures"
+        description="Senzura Codelabs builds secure, scalable, and high-performance digital solutions for startups and enterprises. Web development, mobile apps, cloud & DevOps."
         canonical={siteMetadata.siteUrl}
         openGraph={{
           url: siteMetadata.siteUrl,
-          title: "Senzura CodeLabs — Building Professional & High-Converting Software",
+          title: "Senzura Codelabs — Engineering Secure Digital Futures",
           description:
-            "Leading software development company specializing in web applications, mobile apps, cloud solutions, and AI integration. We help businesses grow online with scalable, user-centric technology.",
+            "Modern software engineering company building secure, scalable digital platforms. Full-stack web, mobile, cloud, and distributed system solutions.",
           images: [
             {
               url: `${siteMetadata.siteUrl}${siteMetadata.twitterImage}`,
-              alt: "Senzura CodeLabs - Software Development Company",
+              alt: "Senzura Codelabs - Software Engineering Company",
             },
           ],
           siteName: siteMetadata.siteName,
@@ -39,7 +39,7 @@ export default function Home() {
           {
             property: "keywords",
             content:
-              "React Developer, Software Developer, Frontend Developer, Web Developer, JavaScript, HTML, CSS, Portfolio, UI/UX, React.js, Frontend Development, Web Development, JavaScript Developer, Responsive Design",
+              "software development, web development, mobile apps, cloud solutions, Next.js, React, Node.js, MongoDB, secure systems, startup engineering, Senzura Codelabs",
           },
         ]}
       />

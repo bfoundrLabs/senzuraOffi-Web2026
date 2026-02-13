@@ -1,94 +1,104 @@
+import React from "react";
+import {
+  GlobeIcon,
+  MobileIcon,
+  CloudIcon,
+  GearIcon,
+  PaintIcon,
+  BuildIcon,
+} from "@/components/icons";
+
 export interface Service {
   id: number;
   title: string;
   description: string;
-  icon: string;
+  icon: React.ComponentType<{ className?: string }>;
   features: string[];
 }
 
 export const SERVICES_DATA: Service[] = [
   {
     id: 1,
-    title: "Web Development",
+    title: "Custom Web Application Development",
     description:
-      "Modern, responsive web applications built with cutting-edge technologies for optimal performance and user experience.",
-    icon: "🌐",
+      "High-performance, responsive web applications built with modern frameworks for seamless user experiences and business growth.",
+    icon: GlobeIcon,
     features: [
-      "React & Next.js development",
-      "Responsive design",
-      "SEO optimization",
-      "Performance tuning",
-      "Progressive Web Apps",
+      "Next.js & React development",
+      "Server-side rendering & static generation",
+      "Progressive Web Apps (PWA)",
+      "SEO & performance optimization",
+      "Responsive & accessible design",
     ],
   },
   {
     id: 2,
-    title: "Mobile Applications",
+    title: "Mobile App Development",
     description:
-      "Native and cross-platform mobile solutions that deliver seamless experiences on iOS and Android devices.",
-    icon: "📱",
+      "Cross-platform mobile applications with native-quality performance, built using Flutter and React Native.",
+    icon: MobileIcon,
     features: [
-      "iOS & Android development",
-      "Cross-platform solutions",
-      "UI/UX optimization",
-      "App store deployment",
-      "Real-time features",
+      "Flutter & React Native development",
+      "iOS & Android deployment",
+      "Push notifications & real-time sync",
+      "Offline-first architecture",
+      "App store optimization",
     ],
   },
   {
     id: 3,
-    title: "Cloud Solutions",
+    title: "Cloud & DevOps Solutions",
     description:
-      "Scalable cloud infrastructure and deployment services to ensure reliability, security, and performance.",
-    icon: "☁️",
+      "Scalable cloud infrastructure with automated CI/CD pipelines, containerization, and monitoring for reliable deployments.",
+    icon: CloudIcon,
     features: [
-      "AWS & Azure integration",
-      "Serverless architecture",
-      "Database optimization",
-      "CDN configuration",
-      "Disaster recovery",
+      "AWS, Azure & GCP integration",
+      "Docker & Kubernetes orchestration",
+      "CI/CD pipeline automation",
+      "Infrastructure as Code (IaC)",
+      "Monitoring & incident response",
     ],
   },
   {
     id: 4,
-    title: "AI & Machine Learning",
+    title: "API & Backend Engineering",
     description:
-      "Intelligent automation and predictive analytics powered by advanced AI and machine learning models.",
-    icon: "🤖",
+      "Robust, secure backend systems and RESTful/GraphQL APIs designed for high throughput and low latency.",
+    icon: GearIcon,
     features: [
-      "ML model development",
-      "Data analysis & insights",
-      "Natural Language Processing",
-      "Computer Vision",
-      "Predictive analytics",
+      "Node.js & Express backends",
+      "RESTful & GraphQL API design",
+      "Authentication & authorization",
+      "Database design & optimization",
+      "Microservices architecture",
     ],
   },
   {
     id: 5,
-    title: "Custom Software Development",
+    title: "UI/UX Engineering",
     description:
-      "Tailored solutions designed specifically for your business needs and technical requirements.",
-    icon: "⚙️",
+      "Pixel-perfect interfaces with intuitive user flows, design systems, and accessibility-first development.",
+    icon: PaintIcon,
     features: [
-      "Requirements analysis",
-      "Architecture design",
-      "Full-stack development",
-      "Quality assurance",
-      "Ongoing support",
+      "Design system creation",
+      "Figma to code conversion",
+      "Interaction & motion design",
+      "Accessibility (WCAG) compliance",
+      "User research & testing",
     ],
   },
   {
     id: 6,
-    title: "Digital Transformation",
+    title: "System Architecture & Consulting",
     description:
-      "End-to-end digital modernization services to streamline operations and enhance digital presence.",
-    icon: "🚀",
+      "Strategic technology consulting and architecture design to ensure your systems are future-ready and scalable.",
+    icon: BuildIcon,
     features: [
-      "Legacy system migration",
-      "Process automation",
-      "Digital strategy",
-      "Technology consulting",
-      "Change management",
+      "Architecture review & design",
+      "Technology stack selection",
+      "Scalability planning",
+      "Security-first design patterns",
+      "Technical due diligence",
     ],
   },
 ];

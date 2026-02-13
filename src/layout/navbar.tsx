@@ -46,19 +46,23 @@ export default function Navbar(props: NavbarProps) {
   }, []);
 
   return (
-    <header className={classNames(
-      "sticky top-0 z-50 px-6 py-1 sm:py-6 sm:px-14 md:px-20 transition-all duration-300",
-       isScrolled ? "bg-transparent backdrop-blur-lg shadow-lg" : "bg-transparent"
-    )}>
-      <div className="mx-auto flex items-center justify-between lg:max-w-7xl">
+    <header
+      className={classNames(
+        "sticky top-0 z-50 px-4 py-4 transition-all duration-300 sm:px-8 sm:py-5 md:px-12",
+        isScrolled
+          ? "bg-transparent shadow-lg backdrop-blur-lg"
+          : "bg-transparent",
+      )}
+    >
+      <div className="mx-auto flex max-w-[90rem] items-center justify-between">
         <Link
           href="/"
-          className="drop-shadow-teralight flex items-center justify-center"
+          className="drop-shadow-teralight relative flex items-center justify-center"
           aria-label="Return to home page"
         >
-          <div className="relative h-36 w-36 sm:h-40 sm:w-40">
-            <Image 
-              src="/favicon.png" 
+          <div className="relative h-14 w-36 sm:h-16 sm:w-40">
+            <Image
+              src="/favicon.png"
               alt={siteMetadata.siteName}
               fill
               className="object-contain"

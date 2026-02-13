@@ -2,35 +2,47 @@ import { type ExperienceShowcaseListItemProps } from "@/components/experience/ex
 
 export const EXPERIENCE: ExperienceShowcaseListItemProps[] = [
   {
-    title: "Software Developer",
+    title: "Founder & Lead Engineer",
     organisation: {
-      name: "Skima",
-      href: "https://skima.ai/",
+      name: "Senzura Codelabs",
+      href: "https://senzuracodelabs.com",
     },
-    date: "Oct 2023 - Present",
-    location: "Mumbai",
-    description: "Reactjs and Nextjs app development",
+    date: "2024 - Present",
+    location: "Colombo, Sri Lanka",
+    description:
+      "Leading architecture, engineering, and delivery of secure, scalable web and mobile applications for startups and enterprises.",
   },
   {
-    title: "Engineering Trainee",
+    title: "Full Stack Developer",
     organisation: {
-      name: "Hexaware",
-      href: "https://hexaware.com/",
+      name: "Senzura Codelabs",
+      href: "https://senzuracodelabs.com",
     },
-    date: "July 2023 - Sep 2023",
+    date: "2024 - Present",
     location: "Remote",
     description:
-      "Learned to work we monorepo and got to learn application architecture, scalling and build tooling to improve CI/CD of micro services.",
+      "Building end-to-end solutions with Next.js, Node.js, MongoDB, and cloud platforms. Implementing CI/CD, testing, and production-grade systems.",
   },
   {
-    title: "Frontend Developer Intern",
+    title: "UI/UX Engineer",
     organisation: {
-      name: "Master Infotech",
-      href: "https://masterinfotech.com/",
+      name: "Senzura Codelabs",
+      href: "https://senzuracodelabs.com",
     },
-    date: "Winter - 2022",
+    date: "2024 - Present",
     location: "Remote",
     description:
-      "Worked on a team responsible for developing new features and updating old codebases to latest technologies. Learned alot about web development and CI/CD development cycle.",
+      "Designing and implementing intuitive user interfaces, design systems, and interactive prototypes with a focus on accessibility.",
+  },
+  {
+    title: "Cloud Architect",
+    organisation: {
+      name: "Senzura Codelabs",
+      href: "https://senzuracodelabs.com",
+    },
+    date: "2024 - Present",
+    location: "Remote",
+    description:
+      "Designing cloud infrastructure on AWS and GCP, implementing container orchestration, and building automated deployment pipelines.",
   },
 ];

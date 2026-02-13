@@ -15,9 +15,10 @@ export default function ContactFormModal({
   showModal,
   setShowModal,
 }: ContactFormModelProps) {
-  const handleSubmit = (values: ContactFormValues) => {
+  const handleSubmit = async (values: ContactFormValues): Promise<void> => {
     console.log("Form Data:", values);
     setShowModal(false);
+    return Promise.resolve();
   };
 
   return (
@@ -66,10 +67,7 @@ export default function ContactFormModal({
                 </button>
               </div>
 
-              <ContactForm
-                isSubmitting={false}
-                handleSubmit={handleSubmit}
-              />
+              <ContactForm isSubmitting={false} handleSubmit={handleSubmit} />
             </Dialog.Panel>
           </Transition.Child>
         </div>

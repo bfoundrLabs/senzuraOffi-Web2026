@@ -19,7 +19,7 @@ export default function AboutHero() {
               width={100}
               height={100}
               className="h-auto w-full px-0 xl:px-16"
-              alt="hero image"
+              alt="Senzura Codelabs Team"
               lightColor="#E0FFFF"
               darkColor="#004D4D"
               unoptimized
@@ -30,18 +30,41 @@ export default function AboutHero() {
       <div className="sm:1/2 mt-10 w-full lg:w-1/2">
         <AnimatePresence>
           <FadeUp key="title-greeting" duration={0.6}>
-            <h1 className="text-6xl font-bold text-accent sm:text-7xl md:text-6xl lg:text-5xl xl:text-7xl">
-              About Senzura CodeLabs
+            <h1 className="bg-gradient-to-r from-[#2E86A7] to-[#1F5F75] bg-clip-text text-6xl font-bold text-transparent sm:text-7xl md:text-6xl lg:text-5xl xl:text-7xl">
+              About Senzura Codelabs
             </h1>
           </FadeUp>
           <FadeUp key="description-1" duration={0.6} delay={0.2}>
             <p className="mt-8 text-base font-medium text-zinc-900 dark:text-zinc-300 sm:text-lg md:text-lg">
-              Senzura CodeLabs is a leading software development company specializing in web design, mobile applications, custom software, and digital solutions. Our highly qualified team delivers tailored solutions that drive business growth and digital transformation.
+              Senzura Codelabs is a modern software engineering company focused
+              on building{" "}
+              <span className="font-bold text-accent">
+                secure, scalable, and future-ready
+              </span>{" "}
+              digital platforms. We specialize in full-stack web development,
+              mobile applications, cloud systems, and distributed architectures.
             </p>
           </FadeUp>
-          <FadeUp key="description-2" duration={0.6} delay={0.4}>
+          <FadeUp key="mission" duration={0.6} delay={0.4}>
+            <div className="mt-8 rounded-xl border border-[#2E86A7]/20 bg-gradient-to-br from-[#2E86A7]/5 to-[#1F5F75]/5 p-6">
+              <h3 className="mb-2 text-sm font-semibold uppercase tracking-wider text-accent">
+                Our Mission
+              </h3>
+              <p className="text-base font-medium text-zinc-900 dark:text-zinc-300 sm:text-lg">
+                To deliver secure and innovative technology solutions that
+                empower businesses worldwide.
+              </p>
+            </div>
+          </FadeUp>
+          <FadeUp key="description-2" duration={0.6} delay={0.6}>
             <p className="mt-8 text-base font-medium text-zinc-900 dark:text-zinc-300 sm:text-lg md:text-lg">
-              From innovative web applications to AI-powered solutions, we focus on user-centric design and scalable architecture. Explore our <Link href="/projects" className="underline underline-offset-4"><span className="text-accent">portfolio</span></Link> to see how we&apos;ve helped businesses succeed online.
+              From innovative web applications to cloud-native solutions, we
+              focus on user-centric design and scalable architecture. Explore
+              our{" "}
+              <Link href="/projects" className="underline underline-offset-4">
+                <span className="text-accent">portfolio</span>
+              </Link>{" "}
+              to see how we&apos;ve helped businesses succeed.
             </p>
           </FadeUp>
           <FadeRight
@@ -60,7 +83,7 @@ export default function AboutHero() {
               />
             </div>
             <span className="text-lg font-medium text-foreground">
-              Mumbai, India
+              Colombo, Sri Lanka
             </span>
           </FadeRight>
         </AnimatePresence>

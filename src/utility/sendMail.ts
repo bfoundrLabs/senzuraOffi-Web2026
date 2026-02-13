@@ -9,10 +9,8 @@ export const sendMail = async function (
   const user = process.env.NODEMAILER_USER;
   const pass = process.env.NODEMAILER_PASS;
 
-  if (!user && !pass) {
-    return new Promise((resolve) =>
-      resolve({ status: 500, message: "Internal server error" }),
-    );
+  if (!user || !pass) {
+    return { status: 500, message: "Internal server error" };
   }
 
   const transporter = createTransport({
@@ -24,9 +22,9 @@ export const sendMail = async function (
   });
 
   const mailOptions = {
-    from: process.env.NODEMAILER_USER,
-    to: process.env.NODEMAILER_USER,
-    subject: "Portfolio: [" + subject + " ]",
+    from: user,
+    to: user,
+    subject: `Senzura Codelabs: [${subject}]`,
     text: `${name}: <${email}>\n${message}`,
   };
 
@@ -35,12 +33,8 @@ export const sendMail = async function (
       if (error) {
         resolve({ status: 500, message: "Failed to send mail" });
       } else {
-        resolve({ status: 200, message: "Mail send successfully" });
+        resolve({ status: 200, message: "Mail sent successfully" });
       }
     });
-        const mailOptions = {
-          from: process.env.NODEMAILER_USER,
-          to: process.env.NODEMAILER_USER,
-          subject: "Senzura CodeLabs: [" + subject + " ]",
-          text: `${name}: <${email}>\n${message}`,
-        };
+  });
+};

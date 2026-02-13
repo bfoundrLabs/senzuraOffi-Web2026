@@ -2,36 +2,47 @@ import { type ExperienceShowcaseListItemProps } from "@/components/experience/ex
 
 export const EDUCATION: ExperienceShowcaseListItemProps[] = [
   {
-    title: "Bachelor Of Engineering in Electronics and Telecommunication",
+    title: "Modern Web Development",
     organisation: {
-      name: "Rizvi College Of Engineering",
-      href: "https://eng.rizvi.edu.in/",
+      name: "Engineering Blog",
+      href: "https://senzuracodelabs.com",
     },
-    date: "2019-2023",
-    location: "Bandra, Mumbai",
+    date: "2026",
+    location: "Senzura Codelabs",
     description:
-      "Relevant courses included Data Structures and Algorithms, Web Design, Cloud Computing, Artificial Neural Network and Database Management.",
+      "Best practices in building modern web applications with Next.js, React, and TypeScript. Server components, edge rendering, and performance patterns.",
   },
   {
-    title: "Higher Secondary School",
+    title: "Secure Backend Systems",
     organisation: {
-      name: "Mithibai College",
-      href: "https://www.mithibai.ac.in/",
+      name: "Engineering Blog",
+      href: "https://senzuracodelabs.com",
     },
-    date: "2016-2018",
-    location: "Vile Parle, Mumbai",
+    date: "2026",
+    location: "Senzura Codelabs",
     description:
-      "Completed the course in Electronics Bifocal Science with 68%. Started freelancing making 3D assets for games. Got interested in game development and learned unity and c#",
+      "Designing security-first backend architectures with authentication, authorization, encryption, and secure API design patterns.",
   },
   {
-    title: "Secondary School Education",
+    title: "Scaling Distributed Apps",
     organisation: {
-      name: "Holy Family High School",
-      href: "https://holyfamilyandheri.org/",
+      name: "Engineering Blog",
+      href: "https://senzuracodelabs.com",
     },
-    date: "2017-2018",
-    location: "Andheri, Mumbai",
+    date: "2025",
+    location: "Senzura Codelabs",
     description:
-      "Learned good values,dedication and disciplne. Played district football for 5 years.",
+      "Strategies for scaling distributed applications: load balancing, caching, message queues, database sharding, and microservices orchestration.",
+  },
+  {
+    title: "Performance Optimization",
+    organisation: {
+      name: "Engineering Blog",
+      href: "https://senzuracodelabs.com",
+    },
+    date: "2025",
+    location: "Senzura Codelabs",
+    description:
+      "Techniques for optimizing web application performance: code splitting, lazy loading, image optimization, CDN strategies, and Core Web Vitals.",
   },
 ];

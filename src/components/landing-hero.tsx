@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 import FadeUp from "@/animation/fade-up";
-import Image from "next/image";
+import Link from "next/link";
 
 export default function LandingHero() {
   const [scrollY, setScrollY] = useState(0);
@@ -41,31 +41,45 @@ export default function LandingHero() {
             <AnimatePresence>
               <FadeUp key="title-main" duration={0.6}>
                 <span className="text-sm font-semibold uppercase tracking-wider text-accent">
-                  WEB & MOBILE APPLICATION DEVELOPMENT
+                  Secure Software Engineering
                 </span>
-                <h2 className="bg-accent bg-clip-text py-2 text-5xl font-bold text-transparent sm:text-6xl md:text-7xl xl:text-8xl">
-                  High-Performance Software, Built to Scale
-                </h2>
+                <h1 className="bg-gradient-to-r from-[#2E86A7] to-[#1F5F75] bg-clip-text py-2 text-5xl font-bold text-transparent sm:text-6xl md:text-7xl xl:text-8xl">
+                  Engineering Secure Digital Futures.
+                </h1>
               </FadeUp>
               <FadeUp key="description" duration={0.6} delay={0.2}>
                 <div className="mt-10 max-w-4xl text-base text-zinc-700 dark:text-zinc-300 sm:text-base md:text-lg">
                   <p className="mb-4">
-                    Welcome to <span className="font-bold text-accent">Senzura CodeLabs</span>, your global partner for Web, Mobile, and Cloud Development.
-                  </p>
-                  <p className="mb-4">
-                    We craft powerful digital products that combine modern UI/UX, robust engineering, cloud infrastructure, and AI integration to help businesses grow, scale, and succeed.
+                    We build{" "}
+                    <span className="font-bold text-accent">
+                      secure, scalable, and high-performance
+                    </span>{" "}
+                    digital solutions for startups and enterprises.
                   </p>
                   <p>
-                    From idea to deployment, we deliver secure, high-performance solutions built with cutting-edge technology.
+                    From idea to deployment,{" "}
+                    <span className="font-semibold text-accent">
+                      Senzura Codelabs
+                    </span>{" "}
+                    delivers future-ready platforms with modern architecture,
+                    cloud infrastructure, and security-first engineering.
                   </p>
                 </div>
               </FadeUp>
               <FadeUp key="cta" duration={0.6} delay={0.4}>
-                <div className="mt-8">
-                  <a href="#services" className="inline-flex items-center gap-2 font-semibold text-accent hover:gap-3 transition-all">
-                    VIEW SERVICES
-                    <span>→</span>
+                <div className="pointer-events-auto mt-10 flex flex-wrap gap-4">
+                  <a
+                    href="#services"
+                    className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#2E86A7] to-[#1F5F75] px-8 py-3 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(46,134,167,0.4)]"
+                  >
+                    Start Your Project
                   </a>
+                  <Link
+                    href="/projects"
+                    className="inline-flex items-center gap-2 rounded-full border-2 border-[#2E86A7] px-8 py-3 text-sm font-semibold text-[#2E86A7] transition-all duration-300 hover:scale-105 hover:bg-[#2E86A7]/10"
+                  >
+                    Explore Our Work
+                  </Link>
                 </div>
               </FadeUp>
             </AnimatePresence>
